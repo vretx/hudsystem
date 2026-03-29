@@ -1,14 +1,20 @@
 local DataService = {}
 local Players = game:GetService("Players")
 
+local DataStoreService = require(script.Parent.Parent.DataStore_Wrapper.Server.DataStoreService)
 local PlayerData = {}
 
 function DataService.InitializePlayer(player: Player)
-	PlayerData[player.UserId] = {
-		XP = 0,
-		Level = 1,
-		Coins = 0,
-	}
+	local profile = DataStoreService.GetProfile(player)
+	if profile then
+		PlayerData[player.UserId] = profile
+	else
+		PlayerData[player.UserId] = {
+			XP = 0,
+			Level = 1,
+			Coins = 0,
+		}
+	end
 end
 
 function DataService.GetData(player: Player)
@@ -16,8 +22,9 @@ function DataService.GetData(player: Player)
 end
 
 function DataService.UpdateData(player: Player, key: string, value: any)
-	if PlayerData[player.UserId] then
-		PlayerData[player.UserId][key] = value
+	local data = PlayerData[player.UserId]
+	if data then
+		data[key] = value
 	end
 end
 
