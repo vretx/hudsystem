@@ -1,7 +1,8 @@
 local HUDController = {}
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local LevelUtils = require(ReplicatedStorage.HUDSYSTEMS.Shared.LevelUtils)
+local HUDSYSTEMS = ReplicatedStorage:WaitForChild("HUDSYSTEMS")
+local LevelUtils = require(HUDSYSTEMS:WaitForChild("Shared"):WaitForChild("LevelUtils"))
 
 local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")

@@ -3,11 +3,14 @@ local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local DataService = require(script.Parent.DataService)
-local LevelUtils = require(ReplicatedStorage.HUDSYSTEMS.Shared.LevelUtils)
+local LevelUtils = require(ReplicatedStorage:WaitForChild("HUDSYSTEMS"):WaitForChild("Shared"):WaitForChild("LevelUtils"))
+
+local HUDSYSTEMS_Folder = ReplicatedStorage:WaitForChild("HUDSYSTEMS")
+local Remotes = HUDSYSTEMS_Folder:WaitForChild("Remotes")
 
 local ProgressionUpdate = Instance.new("RemoteEvent")
 ProgressionUpdate.Name = "ProgressionUpdate"
-ProgressionUpdate.Parent = ReplicatedStorage.HUDSYSTEMS.Remotes
+ProgressionUpdate.Parent = Remotes
 
 function ProgressionService.AddXP(player: Player, amount: number)
 	local data = DataService.GetData(player)
