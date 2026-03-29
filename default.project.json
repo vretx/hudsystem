@@ -1,0 +1,47 @@
+{
+  "name": "VretxSystems",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "HUDSYSTEMS": {
+        "$className": "Folder",
+        "Shared": {
+          "$path": "src/HUDSYSTEMS/Shared"
+        },
+        "Remotes": {
+          "$className": "Folder"
+        }
+      },
+      "DataStore_Wrapper": {
+        "$className": "Folder",
+        "Shared": {
+          "$path": "src/Shared"
+        }
+      }
+    },
+    "ServerScriptService": {
+      "HUDSYSTEMS": {
+        "$className": "Folder",
+        "Server": {
+          "$path": "src/HUDSYSTEMS/Server"
+        }
+      },
+      "DataStore_Wrapper": {
+        "$className": "Folder",
+        "Server": {
+          "$path": "src/Server"
+        }
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "HUDSYSTEMS": {
+          "$className": "Folder",
+          "Client": {
+            "$path": "src/HUDSYSTEMS/Client"
+          }
+        }
+      }
+    }
+  }
+}
