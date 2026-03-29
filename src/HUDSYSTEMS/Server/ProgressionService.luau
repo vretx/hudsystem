@@ -8,9 +8,12 @@ local LevelUtils = require(ReplicatedStorage:WaitForChild("HUDSYSTEMS"):WaitForC
 local HUDSYSTEMS_Folder = ReplicatedStorage:WaitForChild("HUDSYSTEMS")
 local Remotes = HUDSYSTEMS_Folder:WaitForChild("Remotes")
 
-local ProgressionUpdate = Instance.new("RemoteEvent")
-ProgressionUpdate.Name = "ProgressionUpdate"
-ProgressionUpdate.Parent = Remotes
+local ProgressionUpdate = Remotes:FindFirstChild("ProgressionUpdate")
+if not ProgressionUpdate then
+	ProgressionUpdate = Instance.new("RemoteEvent")
+	ProgressionUpdate.Name = "ProgressionUpdate"
+	ProgressionUpdate.Parent = Remotes
+end
 
 function ProgressionService.AddXP(player: Player, amount: number)
 	local data = DataService.GetData(player)

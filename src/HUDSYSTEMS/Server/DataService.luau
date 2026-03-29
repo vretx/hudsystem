@@ -1,7 +1,7 @@
 local DataService = {}
 local Players = game:GetService("Players")
 
-local DataStoreService = require(script.Parent.Parent.DataStore_Wrapper.Server.DataStoreService)
+local DataStoreService = require(game:GetService("ServerScriptService"):WaitForChild("DataStore_Wrapper"):WaitForChild("Server"):WaitForChild("DataStoreService"))
 local PlayerData = {}
 
 function DataService.InitializePlayer(player: Player)
